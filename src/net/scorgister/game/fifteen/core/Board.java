@@ -124,8 +124,8 @@ main:	for(int y = 0; y < board[0].length; y++)
 	public static Board genBoard(int w, int h) {
 		Random random = new Random();
 		
-		int startX = random.nextInt(0, w);
-		int startY = random.nextInt(0, h);
+		int startX = random.nextInt(w);
+		int startY = random.nextInt(h);
 		
 		int[][] board = new int[w][h];
 		List<Integer> used = new ArrayList<Integer>();
@@ -137,7 +137,7 @@ main:	for(int y = 0; y < board[0].length; y++)
 				}
 				int rand = 0;
 				do {
-					rand = random.nextInt(1,  w * h);
+					rand = random.nextInt(w * h - 1) + 1;
 				}while(used.contains(rand));
 				used.add(rand);
 				board[x][y] = rand;
